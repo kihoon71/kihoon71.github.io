@@ -74,7 +74,7 @@ tags: [etc, Andrew Ng, lecture, AI, ML]
 
 - **IT 서비스 소비자 산업의 지형도**
     
-    ![Untitled5]({{site.url}}/img/Untitled 5.png)
+    ![Untitled5]({{site.url}}/assets/img/Untitled 5.png)
     
     - 현재 IT 소비자 서비스 지형에서 가장 많은 지분과 가장 많은 자본, 가치를 창출해내는 IT 소비자 서비스 분야는 광고와 검색 분야이다. (AWS, Google 등의 빅 테크 기업의 진출 분야)
     - AI 서비스의 산업 점유율 자체도 낮다. 더불어서, 가치의 규모 또한 크지 않다. (프로젝트 당 약 50억 규모 - 미국 기준)
