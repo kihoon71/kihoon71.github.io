@@ -43,7 +43,7 @@ tags: [MAE, Computer Vision, CV, AI, ML, paper review]
 
 ## 배경
 
-![Untitled]({{site.url}}/assets/img/20230802mae/Untitiled.png)
+![Untitled]({{site.url}}/assets/img/20230802mae/Untitled.png)
 
 - NLP에서 self-supervised-pretraining 방법론의 대두
 - GPT의 autoregressive 와 BERT의 masked-auto-encoding의 방법론을 베이스로 하여 만들어짐
@@ -54,7 +54,7 @@ tags: [MAE, Computer Vision, CV, AI, ML, paper review]
 
 ## 아키텍쳐 및 방법론
 
-![Untitled1]({{site.url}}/assets/img/20230802mae/Untitiled 1.png)
+![Untitled1]({{site.url}}/assets/img/20230802mae/Untitled 1.png)
 
 ### MASKING
 
@@ -89,7 +89,7 @@ tags: [MAE, Computer Vision, CV, AI, ML, paper review]
 
 ### ViT-L 과의 비교
 
-![Untitled2]({{site.url}}/assets/img/20230802mae/Untitiled 2.png)
+![Untitled2]({{site.url}}/assets/img/20230802mae/Untitled 2.png)
 
 - 왼쪽은  ViT-L 모델을 지도 학습으로 사전 학습 없이 학습 시킨 결과
 - 가운데는 Regualization을 위한 Recipe 적용을 하고 지도 학습으로 사전 학습 없이 학습 시킨 결과이다.
@@ -110,15 +110,15 @@ tags: [MAE, Computer Vision, CV, AI, ML, paper review]
 
 - Masking Ratio
 
-![Untitled3]({{site.url}}/assets/img/20230802mae/Untitiled 3.png)
+![Untitled3]({{site.url}}/assets/img/20230802mae/Untitled 3.png)
 
 75% 라는 높은 마스킹 비율을 보였을 때 파인 튜닝과 linear probing의 결과가 모두 높게 나왔다. 상기할 만한 점은 ViT의 마스킹 비율 15%나 기존의 비슷한 masking 모델의 경우 20% 정도 대였다.   파인튜닝에서는 마스킹 비율에 덜 민감한 경향을 보였다.
 
 - Decoder Design
 
-![Untitled4]({{site.url}}/assets/img/20230802mae/Untitiled 4.png)
+![Untitled4]({{site.url}}/assets/img/20230802mae/Untitled 4.png)
 
-![Untitled5]({{site.url}}/assets/img/20230802mae/Untitiled 5.png)
+![Untitled5]({{site.url}}/assets/img/20230802mae/Untitled 5.png)
 
 파인튜닝의 경우 디코더의 깊이(a)가 결과에 큰 영향을 주지 않았지만, linear probing에서는 영향을 끼침을 확인할 수 있었다. 이와 같은 결과가 나오게 된 배경에는, linear probing에서 사용되는 오토인코더의 레이어가 reconstruction에 특화되어 있는 상태기 때문으로 추정된다. 그에 반면, 파인튜닝시에는 모든 파라미터의 가중치가 업데이트 되기 때문에 recogntion 태스크에도 잘 적응하는 것으로 추정된다.
 
@@ -126,27 +126,27 @@ tags: [MAE, Computer Vision, CV, AI, ML, paper review]
 
 - mask token
 
-![Untitled6]({{site.url}}/assets/img/20230802mae/Untitiled 6.png)
+![Untitled6]({{site.url}}/assets/img/20230802mae/Untitled 6.png)
 
-![Untitled7]({{site.url}}/assets/img/20230802mae/Untitiled 7.png)
+![Untitled7]({{site.url}}/assets/img/20230802mae/Untitled 7.png)
 
 - reconstruction target
 
-![Untitled8]({{site.url}}/assets/img/20230802mae/Untitiled 8.png)
+![Untitled8]({{site.url}}/assets/img/20230802mae/Untitled 8.png)
 
 dVAE로 생성된 토큰을 예측하는 것보다는 patch 당 normalization을 해주고 픽셀 값을 예측하는 편이 모두 결과가 더 좋게 나왔다. 
 
 - data augmentation
 
-![Untitled9]({{site.url}}/assets/img/20230802mae/Untitiled 9.png)
+![Untitled9]({{site.url}}/assets/img/20230802mae/Untitled 9.png)
 
 데이터 어크멘테이션의 경우 크로핑이 제일 효과가 좋았다. 그 외의, color jittering을 사용한 경우는 성능이 감소함을 확인할 수 있었다. 다만, 아예 어그멘테이션을 적용하지 않아도 성능이 괜찮음을 확인할 수 있었다. 이는 contrastive learning의 결과와는 다른 양상을 보여준다.
 
 - mask sampling strategy
 
-![Untitled10]({{site.url}}/assets/img/20230802mae/Untitiled 10.png)
+![Untitled10]({{site.url}}/assets/img/20230802mae/Untitled 10.png)
 
-![Untitled11]({{site.url}}/assets/img/20230802mae/Untitiled 11.png)
+![Untitled11]({{site.url}}/assets/img/20230802mae/Untitled 11.png)
 
 왼쪽은 랜덤 마스킹, 가운데는 block-wise 마스킹, 오른쪽은 규칙적으로 그리드 모양으로 마스킹한 결과이다. 
 
@@ -154,7 +154,7 @@ dVAE로 생성된 토큰을 예측하는 것보다는 patch 당 normalization을
 
 - training schedule
 
-![Untitled12]({{site.url}}/assets/img/20230802mae/Untitiled 12.png)
+![Untitled12]({{site.url}}/assets/img/20230802mae/Untitled 12.png)
 
 기본적으로는 800epoch를 사용했지만, 위의 두 경우 모두 에포크가 증가함에 따라 정확도가 떨어지는 것을 확인할 수 없었다. 
 
@@ -162,13 +162,13 @@ dVAE로 생성된 토큰을 예측하는 것보다는 patch 당 normalization을
 
 - self-supervised
 
-![Untitled13]({{site.url}}/assets/img/20230802mae/Untitiled 13.png)
+![Untitled13]({{site.url}}/assets/img/20230802mae/Untitled 13.png)
 
 MAE 모델은 기존의 sota 성능을 보인 모델들과 비교 도표이다. 일관되게 커다란 ViT 모델을 사용했을 때 성능이 향상함을 알 수 있고. BEiT 모델 보다 더 단순하고 빠름에도 불구하고 더 높은 성능을 보인다. 
 
 - supervised
 
-![Untitled14]({{site.url}}/assets/img/20230802mae/Untitiled 14.png)
+![Untitled14]({{site.url}}/assets/img/20230802mae/Untitled 14.png)
 
 # VideoMAE - video classification에 적용
 
@@ -193,7 +193,7 @@ MAE 모델은 기존의 sota 성능을 보인 모델들과 비교 도표이다. 
 
 ## 아키텍쳐 및 방법론
 
-![Untitled15]({{site.url}}/assets/img/20230802mae/Untitiled 15.png)
+![Untitled15]({{site.url}}/assets/img/20230802mae/Untitled 15.png)
 
 - Temporal downsampling
     - $\tau$ : 프레임을 샘플링하는 Stride를 두어 전체 프레임이 아닌 일부만을 가져온다. 논문에서는 2,4 개의 stride를 두었다고 한다.
@@ -219,7 +219,7 @@ MAE 모델은 기존의 sota 성능을 보인 모델들과 비교 도표이다. 
 - vanilla ViT를 기반으로 하였고, masking ratio = 90% 800 epoch, width는 인코더 크기의 절반.
 - Decoder design
 
-![Untitled16]({{site.url}}/assets/img/20230802mae/Untitiled 16.png)
+![Untitled16]({{site.url}}/assets/img/20230802mae/Untitled 16.png)
 
 ImageMAE와는 다르게 디코더의 깊이가 성능에 영향을 끼쳤다. 
 
@@ -227,13 +227,13 @@ ImageMAE와는 다르게 디코더의 깊이가 성능에 영향을 끼쳤다.
 
 - Masking strategy
 
-![Untitled17]({{site.url}}/assets/img/20230802mae/Untitiled 17.png)
+![Untitled17]({{site.url}}/assets/img/20230802mae/Untitled 17.png)
 
 튜브 매스킹이 성능이 제일 좋은 것을 확인할 수 있었다.
 
 - Reconstruction target
 
-![Untitled18]({{site.url}}/assets/img/20230802mae/Untitiled 18.png)
+![Untitled18]({{site.url}}/assets/img/20230802mae/Untitled 18.png)
 
 처음에는 프레임의 중간 이미지만 재구성하게 하였으나 성능이 좋지 않았다. 
 
@@ -243,7 +243,7 @@ ImageMAE와는 다르게 디코더의 깊이가 성능에 영향을 끼쳤다.
 
 - pre-training strategy
 
-![Untitled19]({{site.url}}/assets/img/20230802mae/Untitiled 19.png)
+![Untitled19]({{site.url}}/assets/img/20230802mae/Untitled 19.png)
 
 Image MAE와 일관되게 완전히 pre-training 없이 처음부터 학습 시킬 경우 성능이 좋지 않았다. 
 
@@ -253,7 +253,7 @@ Video MAE 추가적인 데이터셋 없이 학습 시켰을 때 좋은 성능을
 
 - pretrained-dataset
 
-![Untitled20]({{site.url}}/assets/img/20230802mae/Untitiled 20.png)
+![Untitled20]({{site.url}}/assets/img/20230802mae/Untitled 20.png)
 
 - ImageNET은 원 논문의 train recipe 대로 학습을 시켰다.
 - pre-trained 된 상태에서 ImageMAE와 VideMAE를 학습시켰을 떄 VideoMAE가 일관되게 더 좋은 성능을 보였다.
@@ -265,15 +265,15 @@ Video MAE 추가적인 데이터셋 없이 학습 시켰을 때 좋은 성능을
     - Kinetics-400 데이터셋에 사전학습을 시키고 AVA 데이터셋에 전이학습을 시켰을 때의 결과이다.
     - 만약 Kinetics-400 다운스트림 태스크에 파인 튜닝 시키고 전이학습을 시킨다면 성능이 더 좋아질 것 같다.
 
-![Untitled21]({{site.url}}/assets/img/20230802mae/Untitiled 21.png)
+![Untitled21]({{site.url}}/assets/img/20230802mae/Untitled 21.png)
 
 - SSV2
 
-![Untitled22]({{site.url}}/assets/img/20230802mae/Untitiled 22.png)
+![Untitled22]({{site.url}}/assets/img/20230802mae/Untitled 22.png)
 
 - kinetics400
 
-![Untitled23]({{site.url}}/assets/img/20230802mae/Untitiled 23.png)
+![Untitled23]({{site.url}}/assets/img/20230802mae/Untitled 23.png)
 
 - 추가적인 데이터 없이 학습을 하여도 기존의 SOTA 성능을 보인 모델에 비해 성능이 매우 우수한 것을 알 수 있다.
 - 또한, Backbone 모델이 커짐에 따라 성능이 향상되는 경향 역시 확인할 수 있다.
