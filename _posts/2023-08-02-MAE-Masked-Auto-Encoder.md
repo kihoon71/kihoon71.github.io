@@ -1,7 +1,7 @@
 ---
 title: MAE - Masked Auto-Encoder
 date: 2023-08-02 12:30:00
-categories: [논문리뷰]
+categories: [paper review]
 tags: [MAE, Computer Vision, CV, AI, ML, paper review]
 ---
 
